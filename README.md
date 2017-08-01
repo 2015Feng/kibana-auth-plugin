@@ -29,7 +29,7 @@ sao kibana-plugin
 
 运行插件，可以通过如下方式将参数传递给Kibana：
 ```
-npm start -- --elasticsearch.url 'http://localhost:9200'
+npm start -- --elasticsearch.url 'http://10.0.1.99:9200' --no-ssl --no-base-path
 ```
 
 运行报错，提示```Error: unknown export types translations in plugin kibana-auth-plugin```，貌似v5.1.2不支持国际化。在index.js中将translations注释掉：
