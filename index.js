@@ -35,6 +35,14 @@ export default function (kibana) {
     init(server, options) {
       // Add server routes and initalize the plugin here
       exampleRoute(server);
+
+      require('./server/auth-local-cookie')(server, options);
+
+      // server.on('request-internal', (request, event, tags) => {
+      //     if (tags.error && tags.state) {
+      //         console.error("Error parsing cookie:\n", event.data);
+      //     }
+      // });
     }
 
 
