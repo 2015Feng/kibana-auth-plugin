@@ -111,31 +111,31 @@ module.exports = function (server) {
 
   });
 
-  // server.ext({
-  //   type: 'onPreAuth',
-  //   method: function (request, reply) {
-  //     let token = request.query.token;
-  //     if(!token){
-  //       return reply.continue();
-  //     }
-  //
-  //     console.log(request.path);
-  //
-  //     //TODO 解密token
-  //     let username = 'test';
-  //
-  //     var uuid = 1;
-  //     const sid = String(++uuid);
-  //     request.server.app.cache.set(sid, { username: username }, 0, (err) => {
-  //
-  //       if (err) {
-  //         reply(err);
-  //       }
-  //
-  //       request.cookieAuth.set({ sid: sid });
-  //       //return reply.redirect('/');
-  //       return reply.continue();
-  //     });
-  //   }
-  // });
+  server.ext({
+    type: 'onPreAuth',
+    method: function (request, reply) {
+      let token = request.query.token;
+      if(!token){
+        return reply.continue();
+      }
+
+      console.log(request.path);
+
+      //TODO 解密token
+      let username = 'test';
+
+      var uuid = 1;
+      const sid = String(++uuid);
+      request.server.app.cache.set(sid, { username: username }, 0, (err) => {
+
+        if (err) {
+          reply(err);
+        }
+
+        request.cookieAuth.set({ sid: sid });
+        //return reply.redirect('/');
+        return reply.continue();
+      });
+    }
+  });
 };
