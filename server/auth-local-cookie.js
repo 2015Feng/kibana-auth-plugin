@@ -1,6 +1,20 @@
 module.exports = function (server) {
   const users = {};
-  (process.env.LOCAL_AUTH_LOGINS || 'admin:admin').split(',').forEach(function (kv) {
+  //kibana配置文件config/kibana.yml
+  const config = server.config();
+
+  let username = '';
+  let password = '';
+  
+  try{
+    username = config.get('kibana.auth.username');
+    password = config.get('kibana.auth.password');
+  }
+  catch(e){
+    console.error(e);
+  }
+
+  (process.env.LOCAL_AUTH_LOGINS || (!password ? '' : (username + ':' + password)) || 'admin:admin').split(',').forEach(function (kv) {
     var toks = kv.split(':');
     users[toks[0]] = toks[1];
   });
