@@ -1,6 +1,6 @@
 {
   "name": "kibana-auth-plugin",
-  "version": "0.0.0",
+  "version": "0.0.2",
   "description": "An awesome Kibana plugin",
   "main": "index.js",
   "kibana": {
