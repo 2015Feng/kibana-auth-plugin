@@ -46,3 +46,11 @@ npm run build
 
 安装插件，参考：https://www.elastic.co/guide/en/kibana/current/_installing_plugins.html
 
+配置登录用户名、密码
+在config/kibana.yml中追加以下行：
+```
+# kibana-auth-plugin login user
+kibana-auth-plugin.username: "admin"
+kibana-auth-plugin.password: "123456"
+```
+kibana-auth-plugin与插件index.js中的name保持一致。

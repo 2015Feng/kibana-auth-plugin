@@ -28,6 +28,8 @@ export default function (kibana) {
     config(Joi) {
       return Joi.object({
         enabled: Joi.boolean().default(true),
+        username: Joi.string(), 
+        password: Joi.string(), 
       }).default();
     },
 

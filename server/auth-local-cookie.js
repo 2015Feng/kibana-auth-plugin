@@ -1,14 +1,13 @@
-module.exports = function (server) {
+module.exports = function (server, options) {
   const users = {};
   //kibana配置文件config/kibana.yml
-  const config = server.config();
-
+ 
   let username = '';
   let password = '';
   
   try{
-    username = config.get('kibana.auth.username');
-    password = config.get('kibana.auth.password');
+    username = options.username;
+    password = options.password;
   }
   catch(e){
     console.error(e);
