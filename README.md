@@ -38,3 +38,11 @@ npm start -- --elasticsearch.url 'http://10.0.1.99:9200' --no-ssl --no-base-path
 //   resolve(__dirname, './translations/es.json')
 // ],
 ```
+
+打包插件，在./build目录下生成.zip插件包
+```
+npm run build
+```
+
+安装插件，参考：https://www.elastic.co/guide/en/kibana/current/_installing_plugins.html
+
